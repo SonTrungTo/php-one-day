@@ -1,3 +1,4 @@
+<?php header('Location: http://example.com'); ?>
 <!DOCTYPE html>
 <html>
     <body>
