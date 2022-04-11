@@ -27,11 +27,29 @@
     <div class="spacingTopElement">
         <label for="subj[]">Favorite Subject</label>
         <div>
-            <input id="subj1" type="checkbox" name="subj[]" value="EL" />
+            <input id="subj1" type="checkbox" name="subj[]" value="EL"
+            <?php
+              if (isset($_POST['subj']) && in_array("EL", $_POST['subj'])) {
+                echo 'checked';
+              }
+            ?>
+            />
             <label class="spacingRightEl" for="subj1">English</label>
-            <input id="subj2" type="checkbox" name="subj[]" value="MA" />
+            <input id="subj2" type="checkbox" name="subj[]" value="MA"
+            <?php
+              if (isset($_POST['subj']) && in_array("MA", $_POST['subj'])) {
+                echo 'checked';
+              }
+            ?>
+            />
             <label class="spacingRightEl" for="subj2">Math</label>
-            <input id="subj3" type="checkbox" name="subj[]" value="PG" />
+            <input id="subj3" type="checkbox" name="subj[]" value="PG"
+            <?php
+              if (isset($_POST['subj']) && in_array("PG", $_POST['subj'])) {
+                echo 'checked';
+              }
+            ?>
+            />
             <label class="spacingRightEl" for="subj3">Programming</label>
         </div>
     </div>

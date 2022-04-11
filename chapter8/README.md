@@ -7,3 +7,5 @@ set and non-NULL.
 ## Superglobals
 - `$_GET` stores query string as an associative array (GET method)
 - `$_POST` stores query string as an associative array (POST method)
+## Sanitizing and Validation
+- Use `filter_var(var: any, predefined const): any | false`
