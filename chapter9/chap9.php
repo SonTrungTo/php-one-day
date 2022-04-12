@@ -9,3 +9,17 @@
     echo Movie::DISCOUNT.'<BR>';
     echo $mov1::DISCOUNT.'<BR>';
     echo $mov2::DISCOUNT.'<BR>';
+
+    echo $mov1->displayHeading('h1');
+    $mov1->rentalPrice = -20;
+    echo $mov1->rentalPrice.'<BR>';
+
+    $mov1->id = 200;
+    echo $mov1->id;
+
+    $mov1->rentalPrice = 5.99;
+    echo $mov1->rentalPrice;
+
+    echo '<BR>';
+    echo $mov1;
+    

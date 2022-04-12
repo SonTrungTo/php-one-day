@@ -2,7 +2,7 @@
 
 class Movie {
     private $id;
-    public $title;
+    private $title;
     private $rentalPrice;
     const DISCOUNT = 10;
 
@@ -39,15 +39,26 @@ class Movie {
     public function __get($propertyRequested)
     {
         if ($propertyRequested == 'id') {
-            # code...
+            return "You do not have permissions to gain access to id."."<BR>";
         } else {
-            # code...
+            return $this->$propertyRequested;
         }
-        
     }
 
     public function __set($propertyToModify, $value)
     {
-        # code...
+        if ($propertyToModify == 'rentalPrice' && $value > $this->rentalPrice) {
+            $this->rentalPrice = $value;
+        } else {
+            echo "Failed to modify ".$propertyToModify."<BR>";
+        }
+    }
+
+    public function __toString()
+    {
+        return 'Discount: '.self::DISCOUNT.'%'
+        .'<BR>Id = '.$this->id
+        .'<BR>Title = '.$this->title
+        .'<BR>Rental Price (USD) = '.$this->rentalPrice.'<BR>';
     }
 }
