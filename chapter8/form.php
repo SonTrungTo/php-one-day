@@ -19,7 +19,7 @@
         <div>
             <input type="text" name="studentName" value="<?php 
                 if (isset($_POST['studentName'])) {
-                    echo $_POST['studentName'];
+                    echo htmlspecialchars($_POST['studentName']);
                 }
             ?>" />
         </div>
@@ -66,10 +66,30 @@
         <input name="sm" type="submit" value="Submit Form" />
     </div>
     </form>
+    <?php
+    if (isset($_POST['studentName'])) {
+        echo 'You entered '.htmlspecialchars($_POST['studentName'])
+        .' into the text field'.'<BR>';
+    }
+    ?>
     </body>
 </html>
 <?php
  if (isset($_POST['sm'])) {
-    print_r($_POST);
+    foreach($_POST as $key => $value) {
+        echo gettype($value).'<BR>';
+        if (gettype($value) === 'string') {
+            echo "[$key]".' => '.htmlspecialchars($value).'<BR>';
+        } else {
+            print_r($value);
+            echo '<BR>';
+        }
+    }
  }
+ echo '<BR>';
+ $num = '12.5abc';
+ echo filter_var($num, FILTER_SANITIZE_NUMBER_INT).'<BR>';
+ $email = 'son@gmail';
+ var_dump(filter_var($email, FILTER_VALIDATE_EMAIL));
+ echo '<BR>';
 ?>
